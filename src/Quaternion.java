@@ -67,7 +67,7 @@ public final class Quaternion {
     }
 
     //Создание кватерниона по оси и углу поворота
-    public Quaternion axisRotateAngle(VectorQuaternion axis, double rotateAngle) {
+    public static Quaternion axisRotateAngle(VectorQuaternion axis, double rotateAngle) {
         final double w = rotateAngle;
         final double i = axis.returnX();
         final double j = axis.returnY();

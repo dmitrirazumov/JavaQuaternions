@@ -59,4 +59,37 @@ public class QuaternionTest {
     public void division() throws Exception {
         assertEquals(new Quaternion(0.125, -0.125, -0.125, -0.125), new Quaternion(2.0, 2.0, 2.0, 2.0).division());
     }
+
+    @Test
+    public void scalar() throws Exception {
+        assertEquals(new Quaternion(1.0, 0.0, 0.0, 0.0), new Quaternion(1.0, 1.0, 1.0, 1.0).scalar());
+        assertEquals(new Quaternion(-0.2, 0.0, 0.0, 0.0), new Quaternion(-0.2, 0.2, 0.2, 0.2).scalar());
+    }
+
+    @Test
+    public void vector() throws Exception {
+        assertEquals(new Quaternion(0.0, 0.0, 0.0, 1.0), new Quaternion(1.0, 1.0, 1.0, 1.0).vector());
+        assertEquals(new Quaternion(0.0, 0.0, 0.0, 0.2), new Quaternion(-0.2, 0.2, 0.2, 0.2).vector());
+    }
+
+    @Test
+    public void axisRotateAngle() throws Exception {
+        assertEquals(new Quaternion(0.0, 0.0, 2.0, 3.0), Quaternion.axisRotateAngle(new VectorQuaternion(0.0, 2.0, 3.0), 0.0));
+        assertEquals(new Quaternion(25.0, 33.32, 28.0, -3.0), Quaternion.axisRotateAngle(new VectorQuaternion(33.32, 28.0, -3.0), 25.0));
+        assertEquals(new Quaternion(0.0, 0.0, 0.0, -1.0), Quaternion.axisRotateAngle(new VectorQuaternion(0.0, 0.0, -1.0), 0.0));
+    }
+
+    @Test
+    public void returnAngle() throws Exception {
+        assertEquals(1.0, new Quaternion(1.0, 0.0, 0.0, 0.0).returnAngle(), 1.0e-5);
+        assertEquals(-28.5, new Quaternion(-28.5, 56.285, 3.2456, 6.219).returnAngle(), 1.0e-5);
+        assertEquals(245.44, new Quaternion(245.44, -2.0, -8.9, -1.78).returnAngle(), 1.0e-5);
+    }
+
+    @Test
+    public void returnAxis() throws Exception {
+        assertEquals(new VectorQuaternion(1.0, 1.0, 1.0), new Quaternion(0.0, 1.0, 1.0, 1.0).returnAxis());
+        assertEquals(new VectorQuaternion(56.285, 3.2456, 6.219), new Quaternion(-28.5, 56.285, 3.2456, 6.219).returnAxis());
+        assertEquals(new VectorQuaternion(-2.0, -8.9, -1.78), new Quaternion(245.44, -2.0, -8.9, -1.78).returnAxis());
+    }
 }
