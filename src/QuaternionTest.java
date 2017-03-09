@@ -57,7 +57,8 @@ public class QuaternionTest {
 
     @Test
     public void division() throws Exception {
-        assertEquals(new Quaternion(0.125, -0.125, -0.125, -0.125), new Quaternion(2.0, 2.0, 2.0, 2.0).division());
+        assertEquals(new Quaternion(0.25, 0.25, 0.25, 0.25), new Quaternion(2.0, 2.0, 2.0, 2.0).division(new Quaternion(2.0, 2.0, 2.0, 2.0)));
+        assertEquals(new Quaternion(0.375, 0.25, 0.5, 2.25), new Quaternion(3.0, 2.0, 4.0, 18.0).division(new Quaternion(2.0, 2.0, 2.0, 2.0)));
     }
 
     @Test

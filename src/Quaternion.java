@@ -51,9 +51,9 @@ public final class Quaternion {
     }
 
     //Деление (обращение умножения)
-    public Quaternion division() {
-        final double denominator = norm();
-        return new Quaternion(x0 / denominator, -x1 / denominator, -x2 / denominator, -x3 / denominator);
+    public Quaternion division(Quaternion other) {
+        final double denominator = (other.x0 * other.x0 + other.x1 * other.x1 + other.x2 * other.x2 + other.x3 * other.x3);
+        return new Quaternion(x0 * (other.x0 / denominator), x1 * (other.x1 / denominator), x2 * (other.x2 / denominator), x3 * (other.x3 / denominator));
     }
 
     //Скалярная часть
