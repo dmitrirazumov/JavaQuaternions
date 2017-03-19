@@ -44,11 +44,6 @@ public final class Quaternion {
         return Math.sqrt(norm());
     }
 
-    //Перевод матрицы в обычное представление кватерниона
-    //private Quaternion toPar(double[][] matrix) {
-        //return new Quaternion(matrix[0][0], matrix[1][0], matrix[2][0], matrix[3][0]);
-    //}
-
     //Сопряжение
     public double[][] conjugate() {
         for (int i = 0; i < 4; i++) {
