@@ -60,17 +60,17 @@ public class Tests {
         }
 
         for (int i = 3; i >= 0; i--) {
-            if (i == 0 || i == 1) matrix3[i][3 - i] = -2.0;
-            else matrix3[i][3 - i] = 2.0;
+            if (i == 0 || i == 1) matrix3[i][3 - i] = -4.0;
+            else matrix3[i][3 - i] = 4.0;
         }
-        matrix3[1][0] = 1.5;
-        matrix3[0][1] = -1.5;
-        matrix3[2][3] = -1.5;
-        matrix3[3][2] = 1.5;
-        matrix3[0][2] = -3.0;
-        matrix3[2][0] = 3.0;
-        matrix3[1][3] = 3.0;
-        matrix3[3][1] = -3.0;
+        matrix3[1][0] = 3.0;
+        matrix3[0][1] = -3.0;
+        matrix3[2][3] = -3.0;
+        matrix3[3][2] = 3.0;
+        matrix3[0][2] = -6.0;
+        matrix3[2][0] = 6.0;
+        matrix3[1][3] = 6.0;
+        matrix3[3][1] = -6.0;
 
         matrix4 = new double[4][4];
         for (int i = 0; i < 4; i++) {

@@ -1,20 +1,10 @@
 
 public final class Quaternion {
 
-    private final double x0;
-    private final double x1;
-    private final double x2;
-    private final double x3;
-
-
     //Создание кватерниона
     double[][] matrix;
 
     public Quaternion(double x0, double x1, double x2, double x3) {
-        this.x0 = x0;
-        this.x1 = x1;
-        this.x2 = x2;
-        this.x3 = x3;
         matrix = new double[4][4];
         for (int i = 0; i < 4; i++) {
             matrix[i][i] = x0;
@@ -108,16 +98,18 @@ public final class Quaternion {
     }
 
     //Скалярная часть
+
     public double[][] scalar() {
-        //return new Quaternion(x0, 0.0, 0.0, 0.0);
+        double[][] matrixScalar = new double[4][4];
+        matrixScalar = matrix;
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 if (i != j) {
-                    matrix[i][j] = 0;
+                    matrixScalar[i][j] = 0;
                 }
             }
         }
-        return matrix;
+        return matrixScalar;
     }
 
     //Векторная часть
@@ -157,18 +149,18 @@ public final class Quaternion {
         if (this == obj) return true;
         if (obj instanceof Quaternion) {
             final Quaternion other = (Quaternion) obj;
-            return (Math.abs(x0 - other.x0) < 1.0e-5) && (Math.abs(x1 - other.x1) < 1.0e-5) &&
-                    (Math.abs(x2 - other.x2) < 1.0e-5) && (Math.abs(x3 - other.x3) < 1.0e-5);
+            return (Math.abs(matrix[0][0] - other.matrix[0][0]) < 1.0e-5) && (Math.abs(matrix[1][0] - other.matrix[1][0]) < 1.0e-5) &&
+                    (Math.abs(matrix[2][0] - other.matrix[2][0]) < 1.0e-5) && (Math.abs(matrix[3][0] - other.matrix[3][0]) < 1.0e-5);
         }
         return false;
     }
 
     @Override
     public int hashCode() {
-        final long x0Long = Double.valueOf(x0).longValue();
-        final long x1Long = Double.valueOf(x1).longValue();
-        final long x2Long = Double.valueOf(x2).longValue();
-        final long x3Long = Double.valueOf(x3).longValue();
+        final long x0Long = Double.valueOf(matrix[0][0]).longValue();
+        final long x1Long = Double.valueOf(matrix[1][0]).longValue();
+        final long x2Long = Double.valueOf(matrix[2][0]).longValue();
+        final long x3Long = Double.valueOf(matrix[3][0]).longValue();
         long longResult = x0Long;
         longResult = 17 * longResult + x1Long;
         longResult = 17 * longResult + x2Long;
@@ -178,6 +170,6 @@ public final class Quaternion {
 
     @Override
     public String toString() {
-        return String.format(x0 + " + " + x1 + "i + " + x2 + "j + " + x3 + "k");
+        return String.format(matrix[0][0] + " + " + matrix[1][0] + "i + " + matrix[2][0] + "j + " + matrix[3][0] + "k");
     }
 }
