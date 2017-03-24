@@ -1,222 +1,8 @@
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 public class Tests {
-    double[][] matrix1;
-    double[][] matrix2;
-    double[][] matrix3;
-    double[][] matrix4;
-    double[][] matrix5;
-    double[][] matrix6;
-    double[][] matrix7;
-    double[][] matrix8;
-    double[][] matrix9;
-    double[][] matrix10;
-    double[][] matrix11;
-
-    @Before
-    public void createMatrix() {
-        matrix1 = new double[4][4];
-        for (int i = 0; i < 4; i++) {
-            matrix1[i][i] = 2.0;
-        }
-
-        for (int i = 3; i >= 0; i--) {
-            if (i == 0 || i == 1) matrix1[i][3 - i] = -1.0;
-            else matrix1[i][3 - i] = -1.0;
-        }
-        matrix1[1][0] = -3.0;
-        matrix1[0][1] = -3.0;
-        matrix1[2][3] = -3.0;
-        matrix1[3][2] = -3.0;
-        matrix1[0][2] = -4.0;
-        matrix1[2][0] = -4.0;
-        matrix1[1][3] = -4.0;
-        matrix1[3][1] = -4.0;
-
-        matrix2 = new double[4][4];
-        for (int i = 0; i < 4; i++) {
-            matrix2[i][i] = 1.95;
-        }
-
-        for (int i = 3; i >= 0; i--) {
-            if (i == 0 || i == 1) matrix2[i][3 - i] = -1.214;
-            else matrix2[i][3 - i] = -1.214;
-        }
-        matrix2[1][0] = -3.28;
-        matrix2[0][1] = -3.28;
-        matrix2[2][3] = -3.28;
-        matrix2[3][2] = -3.28;
-        matrix2[0][2] = -4.999;
-        matrix2[2][0] = -4.999;
-        matrix2[1][3] = -4.999;
-        matrix2[3][1] = -4.999;
-
-        matrix3 = new double[4][4];
-        for (int i = 0; i < 4; i++) {
-            matrix3[i][i] = 2.0;
-        }
-
-        for (int i = 3; i >= 0; i--) {
-            if (i == 0 || i == 1) matrix3[i][3 - i] = -4.0;
-            else matrix3[i][3 - i] = 4.0;
-        }
-        matrix3[1][0] = 3.0;
-        matrix3[0][1] = -3.0;
-        matrix3[2][3] = -3.0;
-        matrix3[3][2] = 3.0;
-        matrix3[0][2] = -6.0;
-        matrix3[2][0] = 6.0;
-        matrix3[1][3] = 6.0;
-        matrix3[3][1] = -6.0;
-
-        matrix4 = new double[4][4];
-        for (int i = 0; i < 4; i++) {
-            matrix4[i][i] = 1.0;
-        }
-
-        for (int i = 3; i >= 0; i--) {
-            if (i == 0 || i == 1) matrix4[i][3 - i] = -2.0;
-            else matrix4[i][3 - i] = 2.0;
-        }
-        matrix4[1][0] = 1.5;
-        matrix4[0][1] = -1.5;
-        matrix4[2][3] = -1.5;
-        matrix4[3][2] = 1.5;
-        matrix4[0][2] = -3.0;
-        matrix4[2][0] = 3.0;
-        matrix4[1][3] = 3.0;
-        matrix4[3][1] = -3.0;
-
-        matrix5 = new double[4][4];
-        for (int i = 0; i < 4; i++) {
-            matrix5[i][i] = 4.0;
-        }
-
-        for (int i = 3; i >= 0; i--) {
-            if (i == 0 || i == 1) matrix5[i][3 - i] = -8.0;
-            else matrix5[i][3 - i] = 8.0;
-        }
-        matrix5[1][0] = 6.0;
-        matrix5[0][1] = -6.0;
-        matrix5[2][3] = -6.0;
-        matrix5[3][2] = 6.0;
-        matrix5[0][2] = -12.0;
-        matrix5[2][0] = 12.0;
-        matrix5[1][3] = 12.0;
-        matrix5[3][1] = -12.0;
-
-        matrix6 = new double[4][4];
-        for (int i = 0; i < 4; i++) {
-            matrix6[i][i] = 4.0;
-        }
-
-        for (int i = 3; i >= 0; i--) {
-            if (i == 0 || i == 1) matrix6[i][3 - i] = -8.0;
-            else matrix6[i][3 - i] = 8.0;
-        }
-        matrix6[1][0] = 6.0;
-        matrix6[0][1] = -6.0;
-        matrix6[2][3] = -6.0;
-        matrix6[3][2] = 6.0;
-        matrix6[0][2] = -12.0;
-        matrix6[2][0] = 12.0;
-        matrix6[1][3] = 12.0;
-        matrix6[3][1] = -12.0;
-
-        matrix7 = new double[4][4];
-        for (int i = 0; i < 4; i++) {
-            matrix7[i][i] = -34.0;
-        }
-
-        for (int i = 3; i >= 0; i--) {
-            if (i == 0 || i == 1) matrix7[i][3 - i] = -18.0;
-            else matrix7[i][3 - i] = 18.0;
-        }
-        matrix7[1][0] = 58.0;
-        matrix7[0][1] = -58.0;
-        matrix7[2][3] = -58.0;
-        matrix7[3][2] = 58.0;
-        matrix7[0][2] = 20.0;
-        matrix7[2][0] = -20.0;
-        matrix7[1][3] = -20.0;
-        matrix7[3][1] = 20.0;
-
-        matrix8 = new double[4][4];
-        for (int i = 0; i < 4; i++) {
-            matrix8[i][i] = 0.25;
-        }
-
-        for (int i = 3; i >= 0; i--) {
-            if (i == 0 || i == 1) matrix8[i][3 - i] = 0.25;
-            else matrix8[i][3 - i] = 0.25;
-        }
-        matrix8[1][0] = 0.25;
-        matrix8[0][1] = 0.25;
-        matrix8[2][3] = 0.25;
-        matrix8[3][2] = 0.25;
-        matrix8[0][2] = 0.25;
-        matrix8[2][0] = 0.25;
-        matrix8[1][3] = 0.25;
-        matrix8[3][1] = 0.25;
-
-        matrix9 = new double[4][4];
-        for (int i = 0; i < 4; i++) {
-            matrix9[i][i] = 1.0;
-        }
-
-        for (int i = 3; i >= 0; i--) {
-            if (i == 0 || i == 1) matrix9[i][3 - i] = 0.0;
-            else matrix9[i][3 - i] = 0.0;
-        }
-        matrix9[1][0] = 0.0;
-        matrix9[0][1] = 0.0;
-        matrix9[2][3] = 0.0;
-        matrix9[3][2] = 0.0;
-        matrix9[0][2] = 0.0;
-        matrix9[2][0] = 0.0;
-        matrix9[1][3] = 0.0;
-        matrix9[3][1] = 0.0;
-
-        matrix10 = new double[4][4];
-        for (int i = 0; i < 4; i++) {
-            matrix10[i][i] = 0.0;
-        }
-
-        for (int i = 3; i >= 0; i--) {
-            if (i == 0 || i == 1) matrix10[i][3 - i] = -1.0;
-            else matrix10[i][3 - i] = 1.0;
-        }
-        matrix10[1][0] = 0.0;
-        matrix10[0][1] = 0.0;
-        matrix10[2][3] = 0.0;
-        matrix10[3][2] = 0.0;
-        matrix10[0][2] = 0.0;
-        matrix10[2][0] = 0.0;
-        matrix10[1][3] = 0.0;
-        matrix10[3][1] = 0.0;
-
-        matrix11 = new double[4][4];
-        for (int i = 0; i < 4; i++) {
-            matrix10[i][i] = 0.0;
-        }
-
-        for (int i = 3; i >= 0; i--) {
-            if (i == 0 || i == 1) matrix11[i][3 - i] = -3.0;
-            else matrix11[i][3 - i] = 3.0;
-        }
-        matrix11[1][0] = 0.0;
-        matrix11[0][1] = -0.0;
-        matrix11[2][3] = -0.0;
-        matrix11[3][2] = 0.0;
-        matrix11[0][2] = -2.0;
-        matrix11[2][0] = 2.0;
-        matrix11[1][3] = 2.0;
-        matrix11[3][1] = -2.0;
-    }
-
 
     @Test
     public void norm() throws Exception {
@@ -236,48 +22,61 @@ public class Tests {
 
     @Test
     public void conjugate() throws Exception {
-        assertEquals(matrix1, new Quaternion(2.0, 3.0, 4.0, 1.0).conjugate());
-        assertEquals(matrix2, new Quaternion(1.95, 3.28, 4.999, 1.214).conjugate());
+        assertEquals(new Quaternion(2.0, -3.0, -4.0, -1.0), new Quaternion(2.0, 3.0, 4.0, 1.0).conjugate());
+        assertEquals(new Quaternion(1.95, -3.28, -4.999, -1.214), new Quaternion(1.95, 3.28, 4.999, 1.214).conjugate());
+        assertEquals(new Quaternion(0.0, -2.0, -8.9, -1.78), new Quaternion(0.0, 2.0, 8.9, 1.78).conjugate());
     }
 
     @Test
     public void plus() throws Exception {
-        assertEquals(matrix3, new Quaternion(1.0, 1.5, 3.0, 2.0).plus(new Quaternion(1.0, 1.5, 3.0, 2.0)));
+        assertEquals(new Quaternion(2.0, 3.0, 6.0, 4.0), new Quaternion(1.0, 1.5, 3.0, 2.0).plus(new Quaternion(1.0, 1.5, 3.0, 2.0)));
+        assertEquals(new Quaternion(0.0, 1.0, 3.4, 6.8), new Quaternion(0.0, 0.4, 1.8, 4.0).plus(new Quaternion(0.0, 0.6, 1.6, 2.8)));
+        assertEquals(new Quaternion(10.2896, 56.285, 3.2456, 6.219), new Quaternion(5.2369, 36.2593, 3.2456, 4.0).plus(new Quaternion(5.0527, 20.0257, 0.0, 2.219)));
     }
 
     @Test
     public void minus() throws Exception {
-        assertEquals(matrix4, new Quaternion(2.0, 3.0, 6.0, 4.0).minus(new Quaternion(1.0, 1.5, 3.0, 2.0)));
+        assertEquals(new Quaternion(1.0, 1.5, 3.0, 2.0), new Quaternion(2.0, 3.0, 6.0, 4.0).minus(new Quaternion(1.0, 1.5, 3.0, 2.0)));
+        assertEquals(new Quaternion(0.0, 0.4, 1.8, 4.0), new Quaternion(0.0, 1.0, 3.4, 6.8).minus(new Quaternion(0.0, 0.6, 1.6, 2.8)));
+        assertEquals(new Quaternion(5.2369, 36.2593, 3.2456, 4.0), new Quaternion(10.2896, 56.285, 3.2456, 6.219).minus(new Quaternion(5.0527, 20.0257, 0.0, 2.219)));
     }
 
     @Test
     public void scalarMember() throws Exception {
-        assertEquals(matrix5, new Quaternion(2.0, 3.0, 6.0, 4.0).scalarMember(2.0));
+        assertEquals(new Quaternion(4.0, 6.0, 12.0, 8.0), new Quaternion(2.0, 3.0, 6.0, 4.0).scalarMember(2.0));
+        assertEquals(new Quaternion(1.0, 1.0, 0.0, 7.0), new Quaternion(0.5, 0.5, 0.0, 3.5).scalarMember(2.0));
+        assertEquals(new Quaternion(6.829515, 2.58157912, 9.581951, 5.152050), new Quaternion(1.70737875, 0.64539478, 2.39548775, 1.2880125).scalarMember(4.0));
     }
 
     @Test
     public void multiply() throws Exception {
-        assertEquals(matrix7, new Quaternion(2.0, 5.0, 6.0, 2.0).multiply(new Quaternion(2.0, 2.0, 2.0, 8.0)));
+        assertEquals(new Quaternion(-34.0, 58.0, -20.0, 18.0), new Quaternion(2.0, 5.0, 6.0, 2.0).multiply(new Quaternion(2.0, 2.0, 2.0, 8.0)));
+        assertEquals(new Quaternion(-146303.5862, -5343.379099999999, 12701.211299999999, 82657.65927999999), new Quaternion(20.512, 123.567, 214.245, 12.12).multiply(new Quaternion(1.0, 6.7, 678.42, 12.22)));
+        assertEquals(new Quaternion(0.0, 0.0, 0.0, 0.0), new Quaternion(0.0, 0.0, 0.0, 0.0).multiply(new Quaternion(0.0, 0.0, 0.0, 0.0)));
     }
 
     @Test
     public void division() throws Exception {
-        assertEquals(matrix8, new Quaternion(2.0, 2.0, 2.0, 2.0).division(new Quaternion(2.0, 2.0, 2.0, 2.0)));
+        assertEquals(new Quaternion(0.25, 0.25, 0.25, 0.25), new Quaternion(2.0, 2.0, 2.0, 2.0).division(new Quaternion(2.0, 2.0, 2.0, 2.0)));
     }
 
     @Test
     public void scalar() throws Exception {
-        assertEquals(matrix9, new Quaternion(1.0, 1.0, 1.0, 1.0).scalar());
+        assertEquals(new Quaternion(1.0, 0.0, 0.0, 0.0), new Quaternion(1.0, 1.0, 1.0, 1.0).scalar());
+        assertEquals(new Quaternion(-0.2, 0.0, 0.0, 0.0), new Quaternion(-0.2, 0.2, 0.2, 0.2).scalar());
     }
 
     @Test
     public void vector() throws Exception {
-        assertEquals(matrix10, new Quaternion(1.0, 1.0, 1.0, 1.0).vector());
+        assertEquals(new Quaternion(0.0, 0.0, 0.0, 1.0), new Quaternion(1.0, 1.0, 1.0, 1.0).vector());
+        assertEquals(new Quaternion(0.0, 0.0, 0.0, 0.2), new Quaternion(-0.2, 0.2, 0.2, 0.2).vector());
     }
 
     @Test
     public void axisRotateAngle() throws Exception {
-        assertEquals(matrix11, Quaternion.axisRotateAngle(new VectorQuaternion(0.0, 2.0, 3.0), 0.0));
+        assertEquals(new Quaternion(0.0, 0.0, 2.0, 3.0), Quaternion.axisRotateAngle(new VectorQuaternion(0.0, 2.0, 3.0), 0.0));
+        assertEquals(new Quaternion(25.0, 33.32, 28.0, -3.0), Quaternion.axisRotateAngle(new VectorQuaternion(33.32, 28.0, -3.0), 25.0));
+        assertEquals(new Quaternion(0.0, 0.0, 0.0, -1.0), Quaternion.axisRotateAngle(new VectorQuaternion(0.0, 0.0, -1.0), 0.0));
     }
 
     @Test

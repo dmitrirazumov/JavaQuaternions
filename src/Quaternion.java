@@ -35,102 +35,108 @@ public final class Quaternion {
     }
 
     //Сопряжение
-    public double[][] conjugate() {
+    public Quaternion conjugate() {
+        Quaternion result = new Quaternion(matrix[0][0], matrix[1][0], matrix[2][0], matrix[3][0]);
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                if (matrix[i][j] > 0 && i != j) {
-                    matrix[i][j] = -(matrix[i][j]);
+                if (result.matrix[i][j] > 0 && i != j) {
+                    result.matrix[i][j] = -(result.matrix[i][j]);
                 }
             }
         }
-        return matrix;
+        return result;
     }
 
     //Сумма
-    public double[][] plus(Quaternion other) {
+    public Quaternion plus(Quaternion other) {
+        Quaternion result = new Quaternion(matrix[0][0], matrix[1][0], matrix[2][0], matrix[3][0]);
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                matrix[i][j] = matrix[i][j] + other.matrix[i][j];
+                result.matrix[i][j] = matrix[i][j] + other.matrix[i][j];
             }
         }
-        return matrix;
+        return result;
     }
 
     //Разность
-    public double[][] minus(Quaternion other) {
+    public Quaternion minus(Quaternion other) {
+        Quaternion result = new Quaternion(matrix[0][0], matrix[1][0], matrix[2][0], matrix[3][0]);
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                matrix[i][j] = matrix[i][j] - other.matrix[i][j];
+                result.matrix[i][j] = matrix[i][j] - other.matrix[i][j];
             }
         }
-        return matrix;
+        return result;
     }
 
     //Умножение на скаляр
-    public double[][] scalarMember(double a) {
+    public Quaternion scalarMember(double a) {
+        Quaternion result = new Quaternion(matrix[0][0], matrix[1][0], matrix[2][0], matrix[3][0]);
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                matrix[i][j] = matrix[i][j] * a;
+                result.matrix[i][j] = matrix[i][j] * a;
             }
         }
-        return matrix;
+        return result;
     }
 
     //Умножение
-    public double[][] multiply(Quaternion other) {
+    public Quaternion multiply(Quaternion other) {
         final double k1 = matrix[0][0] * other.matrix[0][0] - matrix[1][0] * other.matrix[1][0] - matrix[2][0] * other.matrix[2][0] - matrix[3][0] * other.matrix[3][0];
         final double k2 = matrix[0][0] * other.matrix[1][0] + matrix[1][0] * other.matrix[0][0] + matrix[2][0] * other.matrix[3][0] - matrix[3][0] * other.matrix[2][0];
         final double k3 = matrix[0][0] * other.matrix[2][0] - matrix[1][0] * other.matrix[3][0] + matrix[2][0] * other.matrix[0][0] + matrix[3][0] * other.matrix[1][0];
         final double k4 = matrix[0][0] * other.matrix[3][0] + matrix[1][0] * other.matrix[2][0] - matrix[2][0] * other.matrix[1][0] + matrix[3][0] * other.matrix[0][0];
-        Quaternion a = new Quaternion(k1, k2, k3, k4);
-        return a.matrix;
+        Quaternion result = new Quaternion(k1, k2, k3, k4);
+        return result;
     }
 
     //Деление (обращение умножения)
-    public double[][] division(Quaternion other) {
+    public Quaternion division(Quaternion other) {
+        Quaternion result = new Quaternion(matrix[0][0], matrix[1][0], matrix[2][0], matrix[3][0]);
         final double denominator = other.matrix[0][0] * other.matrix[0][0] + other.matrix[1][0] * other.matrix[1][0] + other.matrix[2][0] * other.matrix[2][0] + other.matrix[3][0] * other.matrix[3][0];
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                matrix[i][j] = matrix[i][j] * (other.matrix[i][j] / denominator);
+                result.matrix[i][j] = matrix[i][j] * (other.matrix[i][j] / denominator);
             }
         }
-        return matrix;
+        return result;
     }
 
     //Скалярная часть
 
-    public double[][] scalar() {
-        double[][] matrixScalar = new double[4][4];
-        matrixScalar = matrix;
+    public Quaternion scalar() {
+        Quaternion result = new Quaternion(matrix[0][0], matrix[1][0], matrix[2][0], matrix[3][0]);
+        result.matrix = matrix;
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 if (i != j) {
-                    matrixScalar[i][j] = 0;
+                    result.matrix[i][j] = 0;
                 }
             }
         }
-        return matrixScalar;
+        return result;
     }
 
     //Векторная часть
-    public double[][] vector() {
+    public Quaternion vector() {
         //return new Quaternion(0.0, 0.0, 0.0, x3);
+        Quaternion result = new Quaternion(matrix[0][0], matrix[1][0], matrix[2][0], matrix[3][0]);
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                if (j != 3 - i) matrix[i][j] = 0;
+                if (j != 3 - i) result.matrix[i][j] = 0;
             }
         }
-        return matrix;
+        return result;
     }
 
     //Создание кватерниона по оси и углу поворота
-    public static double[][] axisRotateAngle(VectorQuaternion axis, double rotateAngle) {
+    public static Quaternion axisRotateAngle(VectorQuaternion axis, double rotateAngle) {
         final double w = rotateAngle;
         final double i = axis.returnX();
         final double j = axis.returnY();
         final double k = axis.returnZ();
-        Quaternion b = new Quaternion(w, i, j, k);
-        return b.matrix;
+        Quaternion result = new Quaternion(w, i, j, k);
+        return result;
     }
 
     //Возваращение угла от данного кватерниона
