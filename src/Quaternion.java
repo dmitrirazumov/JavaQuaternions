@@ -52,7 +52,7 @@ public final class Quaternion {
         Quaternion result = new Quaternion(matrix[0][0], matrix[1][0], matrix[2][0], matrix[3][0]);
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                result.matrix[i][j] = matrix[i][j] + other.matrix[i][j];
+                result.matrix[i][j] += matrix[i][j];
             }
         }
         return result;
@@ -105,28 +105,12 @@ public final class Quaternion {
     //Скалярная часть
 
     public Quaternion scalar() {
-        Quaternion result = new Quaternion(matrix[0][0], matrix[1][0], matrix[2][0], matrix[3][0]);
-        result.matrix = matrix;
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
-                if (i != j) {
-                    result.matrix[i][j] = 0;
-                }
-            }
-        }
-        return result;
+        return new Quaternion(matrix[0][0], 0.0, 0.0, 0.0);
     }
 
     //Векторная часть
     public Quaternion vector() {
-        //return new Quaternion(0.0, 0.0, 0.0, x3);
-        Quaternion result = new Quaternion(matrix[0][0], matrix[1][0], matrix[2][0], matrix[3][0]);
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
-                if (j != 3 - i) result.matrix[i][j] = 0;
-            }
-        }
-        return result;
+        return new Quaternion(0.0, 0.0, 0.0, matrix[3][0]);
     }
 
     //Создание кватерниона по оси и углу поворота

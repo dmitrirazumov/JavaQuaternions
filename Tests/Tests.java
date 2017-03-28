@@ -30,8 +30,8 @@ public class Tests {
     @Test
     public void plus() throws Exception {
         assertEquals(new Quaternion(2.0, 3.0, 6.0, 4.0), new Quaternion(1.0, 1.5, 3.0, 2.0).plus(new Quaternion(1.0, 1.5, 3.0, 2.0)));
-        assertEquals(new Quaternion(0.0, 1.0, 3.4, 6.8), new Quaternion(0.0, 0.4, 1.8, 4.0).plus(new Quaternion(0.0, 0.6, 1.6, 2.8)));
-        assertEquals(new Quaternion(10.2896, 56.285, 3.2456, 6.219), new Quaternion(5.2369, 36.2593, 3.2456, 4.0).plus(new Quaternion(5.0527, 20.0257, 0.0, 2.219)));
+        assertEquals(new Quaternion(0.0, 0.8, 3.6, 8.0), new Quaternion(0.0, 0.4, 1.8, 4.0).plus(new Quaternion(0.0, 0.6, 1.6, 2.8)));
+        assertEquals(new Quaternion(10.4738, 72.5186, 6.4912, 8.0), new Quaternion(5.2369, 36.2593, 3.2456, 4.0).plus(new Quaternion(5.0527, 20.0257, 0.0, 2.219)));
     }
 
     @Test
